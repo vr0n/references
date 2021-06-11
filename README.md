@@ -28,6 +28,12 @@ curl -b "cookie=value" example.com/anywhere
 # if copying a directory, a trailing slash will copy the directories contents in full. No trailing slash will just copy the directory and its contents
 rsync --progress [-r] <directory or file source> < directory or file destination>
 ```
+## sort
+```sh
+# I spent **years** adding "| sort | uniq" to the end of commands. 
+# Turns out you can just...
+sort -u
+```
 
 # VIM
 
