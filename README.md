@@ -21,6 +21,15 @@ curl -d "field0=value0&field1=value1" example.com/form
 curl -b "cookie=value" example.com/anywhere
 ```
 
+## find
+```sh
+# search all while excluding one dir (proc, i.t.e.)
+# -path select a path
+# /prune is the path
+# -prune exclude previously called path from search
+find / -path /proc -prune
+```
+
 ## rsync
 ```sh
 # --progress should just be aliased in rsync, as it is awesome
@@ -28,6 +37,7 @@ curl -b "cookie=value" example.com/anywhere
 # if copying a directory, a trailing slash will copy the directories contents in full. No trailing slash will just copy the directory and its contents
 rsync --progress [-r] <directory or file source> < directory or file destination>
 ```
+
 ## sort
 ```sh
 # I spent **years** adding "| sort | uniq" to the end of commands. 
