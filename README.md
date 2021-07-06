@@ -51,3 +51,8 @@ sort -u
 ```sh
 [0-9]*\.[0-9]*\.[0-9]*\.[0-9]*
 
+## Case Insensitive search
+# just add \c anywhere in the / call
+```sh
+/search case insensitive\c
+```
