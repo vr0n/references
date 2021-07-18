@@ -20,6 +20,11 @@ curl -d "field0=value0&field1=value1" example.com/form
 # -b cookie in "cookie=value" format
 curl -b "cookie=value" example.com/anywhere
 ```
+## date
+```sh
+# Do math on a date in YYYY-MM-DDT:H:M:SZ format (any other format works as well)
+date -u +"%Y-%m-%dT%H:%M:%SZ" -d "+1 minute"
+```
 
 ## find
 ```sh
@@ -28,6 +33,12 @@ curl -b "cookie=value" example.com/anywhere
 # /prune is the path
 # -prune exclude previously called path from search
 find / -path /proc -prune
+```
+
+## nc
+```sh
+# Check for open ports if you can't get to Nmap
+for i in {0..65535}; do nc -z -v <IP> $i 2>&1 | grep -i connected; done
 ```
 
 ## rsync
