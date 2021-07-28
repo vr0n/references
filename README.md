@@ -14,23 +14,26 @@ csplit --digits=2 --quiet --prefix=out <file> "/<character sequence>/" "{*}"
 # send post request with form data
 # -d is the data
 curl -d "field0=value0&field1=value1" example.com/form
-```
-```sh
+
 # send a cookie with a curl request
 # -b cookie in "cookie=value" format
 curl -b "cookie=value" example.com/anywhere
 ```
+
 ## date
 ```sh
 # Do math on a date in YYYY-MM-DDT:H:M:SZ format (any other format works as well)
+# -u return time in UTC (optional, obviously)
+# -d display time based on this date modifier (1 minute from now, i.t.e.)
 date -u +"%Y-%m-%dT%H:%M:%SZ" -d "+1 minute"
 ```
 
 ## find
 ```sh
-# search all while excluding one dir (proc, i.t.e.)
+# search all while excluding one dir (exclude /proc, i.t.e.)
+# / start at root directory
 # -path select a path
-# /prune is the path
+# /proc is the path
 # -prune exclude previously called path from search
 find / -path /proc -prune
 ```
@@ -38,6 +41,8 @@ find / -path /proc -prune
 ## nc
 ```sh
 # Check for open ports if you can't get to Nmap
+# -z check if you can connect and do nothing else
+# -v verbose output
 for i in {0..65535}; do nc -z -v <IP> $i 2>&1 | grep -i connected; done
 ```
 
@@ -46,7 +51,7 @@ for i in {0..65535}; do nc -z -v <IP> $i 2>&1 | grep -i connected; done
 # --progress should just be aliased in rsync, as it is awesome
 # -r to recursively copy files if copying a directory
 # if copying a directory, a trailing slash will copy the directories contents in full. No trailing slash will just copy the directory and its contents
-rsync --progress [-r] <directory or file source> < directory or file destination>
+rsync --progress [-r] <directory or file source> <directory or file destination>
 ```
 
 ## sort
@@ -60,10 +65,13 @@ sort -u
 
 ## IP grep
 ```sh
+# Just an example of how regex works in Vim
+# Search this way after using '/'
 [0-9]*\.[0-9]*\.[0-9]*\.[0-9]*
+```
 
 ## Case Insensitive search
-# just add \c anywhere in the / call
 ```sh
+# Just add \c anywhere in the / call
 /search case insensitive\c
 ```
