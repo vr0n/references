@@ -92,3 +92,8 @@ sort -u
 # Just add \c anywhere in the / call
 /search case insensitive\c
 ```
+
+## Remove duplicate lines
+```sh
+:sort u
+```
