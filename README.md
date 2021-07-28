@@ -38,6 +38,23 @@ date -u +"%Y-%m-%dT%H:%M:%SZ" -d "+1 minute"
 find / -path /proc -prune
 ```
 
+## join
+```sh
+# Had a really parochial problem where I had two files that contained different email headers/
+# I wanted to create a new file that both sets of email headers from each file in their own
+# column, but I also wanted them to be in alphabetical order and to be on the same line if there
+# was a match across both files (for example, the new file should contain "To:|To:" as one line
+# because both files included a "To:" header, but if only of the fiels contained that header, I
+# would want the line to read "To:|" or "|To:" depending on which file did not include the header.
+#
+# To solve this problem, I utilized the `join` command for the first time like so:
+# -o Output format (syntax of <filenum>.<columnnum>). Each file only had one "column"
+# -t Delimeter between info from the first file and second file (a single space by default)
+# -a Print unpaired lines from either file 1 or file 2 (in this example, I print unpaired from both)
+# --nocheck-order I saw weird behavior when I didn't include this line, and everything worked when added
+join -o "1.1,2.1" -t '|' -a 1 -a 2 --nocheck-order <first file> <second file>
+```
+
 ## nc
 ```sh
 # Check for open ports if you can't get to Nmap
