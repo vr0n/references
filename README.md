@@ -55,6 +55,17 @@ find / -path /proc -prune
 join -o "1.1,2.1" -t '|' -a 1 -a 2 --nocheck-order <first file> <second file>
 ```
 
+## make
+```sh
+# If you're like me, and you don't use tabs in vim (just map tabs
+# to spaces), then you probably noticed make's and Makefile's weird
+# relationship with tabs (they don't work without them, usually).
+# 
+# Here is the work around:
+all: ; <all code>
+clear: ; <clear code>
+```
+
 ## nc
 ```sh
 # Check for open ports if you can't get to Nmap
