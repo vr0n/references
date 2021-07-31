@@ -1,3 +1,16 @@
+# Pentesting tools references
+
+## hydra
+```sh
+# http-post-form example, since I always, always, *always* forget...
+# format is hydra <ip> "<path/to/form>:<parameters -- e.g., username=^USER^>:<error response>" <options>
+# -l username on command line
+# -P password file
+# -t threads
+# -o output file of results
+hydra <ip> http-post-form "/login:username=^USER^&password=^PASS^:Bad Login" -l admin -P /usr/share/wordlists/rockyou.txt -t 10 -o output.file
+```
+
 # Shell/GNU tool command references
 
 ## csplit
