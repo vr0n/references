@@ -102,6 +102,19 @@ rsync --progress [-r] <directory or file source> <directory or file destination>
 sort -u
 ```
 
+## tcpdump
+```sh
+# Two trick here:
+# 1. Capture on all interfaces (-i any)
+# 2. Read to a file and output to stdout
+# Explanation for 2: 
+# -w write to file (to stdout denoted by "-")
+# <pipe to tee> tee outputs to stdout as well as writes to a file
+# -r read from stdout (receiving the output of tee)
+# sudo may be required
+sudo tcpdump -i any -w - | tee output.file | tcpdump -r -
+```
+
 # VIM
 
 ## IP grep
