@@ -115,6 +115,14 @@ sort -u
 sudo tcpdump -i any -w - | tee output.file | tcpdump -r -
 ```
 
+## ctr
+```sh
+# remove all images from containerd (similar for removing containers)
+for image in $(ctr --namespace k8s.io --address /var/run/k3s/containerd/containerd.sock | images ls -q); do 
+    ctr --namespace k8s.io --address /var/run/k3s/containerd/containerd.sock images remove $image; 
+done
+```
+
 # VIM
 
 ## IP grep
