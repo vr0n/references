@@ -11,6 +11,16 @@
 hydra <ip> http-post-form "/login:username=^USER^&password=^PASS^:Bad Login" -l admin -P /usr/share/wordlists/rockyou.txt -t 10 -o output.file
 ```
 
+# Reversing tools references
+
+## gdb
+
+### gef-specific
+```sh
+# demangle c++ function mames
+set print asm-demangle on
+```
+
 # Shell/GNU tool command references
 
 ## csplit
@@ -114,6 +124,19 @@ sort -u
 # sudo may be required
 sudo tcpdump -i any -w - | tee output.file | tcpdump -r -
 ```
+
+## zip
+```sh
+# Still not 100% what the underlying issue is here, but I have found
+# that when converting a large zip archive (10GB or more) that was
+# created on Windows to a Linux machine, it fails to unzip. 
+# Running the following zip command prior to unzip-ing seems to
+# fiz the issue with no data loss (found at this github issue:
+# https://github.com/AmsterdamUMC/AmsterdamUMCdb/issues/13 )
+zip -FF <input zip file> --out <output zip file> -fz
+```
+
+# Kubernetes
 
 ## ctr
 ```sh
