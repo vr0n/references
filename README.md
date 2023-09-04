@@ -21,6 +21,11 @@ hydra <ip> http-post-form "/login:username=^USER^&password=^PASS^:Bad Login" -l 
 set print asm-demangle on
 ```
 
+```sh
+# view heap chunks
+heap chunks
+```
+
 # Shell/GNU tool command references
 
 ## csplit
