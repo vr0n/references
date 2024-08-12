@@ -177,3 +177,9 @@ done
 ```sh
 :sort u
 ```
+
+## Find/Replace on subset of lines
+```sh 
+# find/replace only for lines 27 through 42 inclusive of both line 27 and 42
+:27,42s/<find patern>/<replace pattern>/g
+```
