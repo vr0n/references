@@ -119,7 +119,7 @@ sort -u
 
 ## tcpdump
 ```sh
-# Two trick here:
+# Two tricks here:
 # 1. Capture on all interfaces (-i any)
 # 2. Read to a file and output to stdout
 # Explanation for 2: 
@@ -128,6 +128,13 @@ sort -u
 # -r read from stdout (receiving the output of tee)
 # sudo may be required
 sudo tcpdump -i any -w - | tee output.file | tcpdump -r -
+```
+
+```
+# Another two tricks:
+# 1. Do not use names for protocols. Use port numbers only (-n)
+# 2. Filter for traffic to and from host (host <ip>)
+tcpdump -i any -n host 192.168.1.1
 ```
 
 ## zip
